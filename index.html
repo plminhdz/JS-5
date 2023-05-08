@@ -68,20 +68,42 @@
         <h3>Tính Thuế Thu Nhập Cá Nhân</h3>
         <form class="row">
             <div class="form-group col-4">
-                <input type="text" class="form-control" id="tenKhachHang" placeholder="Nhập họ tên">
+                <input type="text" class="form-control" id="tenKhachHang3" placeholder="Nhập họ tên">
             </div>
             <div class="form-group col-4">
-                <input type="number" class="form-control" id="tenKhachHang" placeholder="Tổng Thu Nhập Năm">
+                <input type="number" class="form-control" id="thuNhapNam" placeholder="Tổng Thu Nhập Năm">
             </div>
             <div class="form-group col-4">
-                <input type="number" class="form-control" id="soKw" placeholder="Số Người Phụ Thuộc">
+                <input max="2" type="number" class="form-control" id="soNPT" placeholder="Số Người Phụ Thuộc">
             </div>
             
-            <button onclick="tinhTienDien()" type="button" class="btn btn-success ml-3">Tính Tiền Điện</button>
+            <button onclick="tinhTienThue()" type="button" class="btn btn-success ml-3">Tính Tiền Thuế</button>
+
+        </form>
+        <p class="mt-3" id="result3" style="color: red; font-weight: bold;"></p>
+    </div>
+    <div class="mt-5 container w-50">
+        <h3>Tính Tiền Điện</h3>
+        <form class="row">
+            <select class="form-control col-4" id="loaiKH">
+                <option value="0" selected>Chọn Loại Khách Hàng</option>
+                <option value="2">Nhà dân</option>
+                <option value="1">Doanh nghiệp</option>
+                
+            </select>
+            <div class="form-group col-4">
+                <input type="text" class="form-control" id="maKhachHang" placeholder="Nhập mã khách hàng">
+            </div>
+            <div class="form-group col-4">
+                <input type="number" class="form-control" id="soKenh" placeholder="Nhập số kênh cao cấp">
+            </div>
+            
+            <button onclick="tinhTienCap()" type="button" class="btn btn-success ml-3">Tính Tiền Cáp</button>
 
         </form>
         <p class="mt-3" id="result2" style="color: red; font-weight: bold;"></p>
     </div>
+
 
 
 

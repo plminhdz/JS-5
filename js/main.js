@@ -67,4 +67,32 @@ function tinhTienDien(){
 }
 
 // Tính thuế thu nhập cá nhân
+const tienTruNPT = 1.6e+6;
+function tinhTienThue(){
+    var tenKhachHang = document.getElementById("tenKhachHang3").value;
+    var thuNhapNam = Number(document.getElementById("thuNhapNam").value);
+    var soNPT = Number(document.getElementById("soNPT").value);
 
+    var tienThue = 0;
+
+    if(thuNhapNam <= 60e+6){
+        tienThue = thuNhapNam*0.05 - (soNPT*tienTruNPT);
+    } else if(thuNhapNam <= 120e+6){
+        tienThue = 60e+6*0.05 + (thuNhapNam-60)*0.1 - (soNPT*tienTruNPT);
+    } else if(thuNhapNam <= 210e+6){
+        tienThue = 60e+6*0.05 + (60e+6*0.1) + (thuNhapNam-120)*0.15 - (soNPT*tienTruNPT);
+    } else if(thuNhapNam <= 384e+6){
+        tienThue = 60e+6*0.05 + (60e+6*0.1) + 90e+6*0.15 + (thuNhapNam-210)*0.2 - (soNPT*tienTruNPT);
+    } else if(thuNhapNam <= 624e+6){
+        tienThue = 60e+6*0.05 + (60e+6*0.1) + 90e+6*0.15 + 174e+6*0.2 + (thuNhapNam-384)*0.25 - (soNPT*tienTruNPT);
+    } else if(thuNhapNam <= 960e+6){
+        tienThue = 60e+6*0.05 + (60e+6*0.1) + 90e+6*0.15 + 174e+6*0.2 + 240e+6/100*0.25 + (thuNhapNam-624)*0.3 - (soNPT*tienTruNPT);
+    } else if(thuNhapNam > 960e+6){
+        tienThue = 60e+6*0.05 + (60e+6*0.1) + 90e+6*0.15 + 174e+6*0.2 + 240e+6/100*0.25 + 336e+6/100*0.3 + (thuNhapNam-960)*0.35 - (soNPT*tienTruNPT);
+       
+    }
+
+    document.getElementById("result3").innerHTML = "Họ tên: " + tenKhachHang + "Tiền thuế thu nhập cá nhân: " + tienThue.toLocaleString();
+}
+
+// Tính tiền cáp
